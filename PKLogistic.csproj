@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{28E3F212-228D-4513-AAC0-C49CED5E3CFC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CargoTransportation</RootNamespace>
+    <AssemblyName>PKLogistic</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\PKLogistic.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logistika_708lwfvf9srx.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationData.cs" />
+    <Compile Include="Menu\CustomPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Menu\CustomPanel.Designer.cs">
+      <DependentUpon>CustomPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\MenuUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\MenuUC.Designer.cs">
+      <DependentUpon>MenuUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\ToolsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\ToolsUC.Designer.cs">
+      <DependentUpon>ToolsUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\PaymentToDriversUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\PaymentToDriversUC.Designer.cs">
+      <DependentUpon>PaymentToDriversUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\ReportsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\ReportsUC.Designer.cs">
+      <DependentUpon>ReportsUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginForm.designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TransportVehicle.cs" />
+    <Compile Include="Model\Organization.cs" />
+    <Compile Include="Model\Route.cs" />
+    <Compile Include="Model\Rate.cs" />
+    <Compile Include="Model\Service.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\PaymentType.cs" />
+    <Compile Include="Model\Payment.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs" />
+    <Compile Include="View\ReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ReportsForm.designer.cs">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Report.cs" />
+    <Compile Include="Reports\ReportColumn.cs" />
+    <Compile Include="Reports\ReportRow.cs" />
+    <Compile Include="Reports\ReportsBuilder.cs" />
+    <Compile Include="View\PaymentTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PaymentTableForm.designer.cs">
+      <DependentUpon>PaymentTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PaymentDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PaymentDetailForm.designer.cs">
+      <DependentUpon>PaymentDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PaymentTypeTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PaymentTypeTableForm.designer.cs">
+      <DependentUpon>PaymentTypeTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PaymentTypeDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PaymentTypeDetailForm.designer.cs">
+      <DependentUpon>PaymentTypeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrderTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OrderTableForm.designer.cs">
+      <DependentUpon>OrderTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrderDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OrderDetailForm.designer.cs">
+      <DependentUpon>OrderDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ServiceTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ServiceTableForm.designer.cs">
+      <DependentUpon>ServiceTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ServiceDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ServiceDetailForm.designer.cs">
+      <DependentUpon>ServiceDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RateTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RateTableForm.designer.cs">
+      <DependentUpon>RateTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RateDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RateDetailForm.designer.cs">
+      <DependentUpon>RateDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RouteTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RouteTableForm.designer.cs">
+      <DependentUpon>RouteTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RouteDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\RouteDetailForm.designer.cs">
+      <DependentUpon>RouteDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrganizationTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OrganizationTableForm.designer.cs">
+      <DependentUpon>OrganizationTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrganizationDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OrganizationDetailForm.designer.cs">
+      <DependentUpon>OrganizationDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TransportVehicleTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TransportVehicleTableForm.designer.cs">
+      <DependentUpon>TransportVehicleTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TransportVehicleDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TransportVehicleDetailForm.designer.cs">
+      <DependentUpon>TransportVehicleDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DivisionTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DivisionTableForm.designer.cs">
+      <DependentUpon>DivisionTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DivisionDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DivisionDetailForm.designer.cs">
+      <DependentUpon>DivisionDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Division.cs" />
+    <Compile Include="View\FuelTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FuelTableForm.designer.cs">
+      <DependentUpon>FuelTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FuelDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FuelDetailForm.designer.cs">
+      <DependentUpon>FuelDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Fuel.cs" />
+    <Compile Include="View\DriverCardTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DriverCardTableForm.designer.cs">
+      <DependentUpon>DriverCardTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DriverCardDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DriverCardDetailForm.designer.cs">
+      <DependentUpon>DriverCardDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DriverCard.cs" />
+    <Compile Include="Model\TransportVehicleBrand.cs" />
+    <Compile Include="View\TransportVehicleBrandDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TransportVehicleBrandDetailForm.designer.cs">
+      <DependentUpon>TransportVehicleBrandDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TransportVehicleBrandTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TransportVehicleBrandTableForm.designer.cs">
+      <DependentUpon>TransportVehicleBrandTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormConnectionTuning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormConnectionTuning.designer.cs">
+      <DependentUpon>FormConnectionTuning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MemIniFile.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\TransportVehicleType.cs" />
+    <Compile Include="View\Server.cs" />
+    <Compile Include="View\TransportVehicleTypeDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TransportVehicleTypeDetailForm.designer.cs">
+      <DependentUpon>TransportVehicleTypeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TransportVehicleTypeTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TransportVehicleTypeTableForm.designer.cs">
+      <DependentUpon>TransportVehicleTypeTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Waybill.cs" />
+    <Compile Include="View\WaybillDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WaybillDetailForm.designer.cs">
+      <DependentUpon>WaybillDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WaybillTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WaybillTableForm.designer.cs">
+      <DependentUpon>WaybillTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\WaybillsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\WaybillsUC.Designer.cs">
+      <DependentUpon>WaybillsUC.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\MenuUC.resx">
+      <DependentUpon>MenuUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\ToolsUC.resx">
+      <DependentUpon>ToolsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\PaymentToDriversUC.resx">
+      <DependentUpon>PaymentToDriversUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\ReportsUC.resx">
+      <DependentUpon>ReportsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReportsForm.resx">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PaymentTableForm.resx">
+      <DependentUpon>PaymentTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PaymentDetailForm.resx">
+      <DependentUpon>PaymentDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PaymentTypeTableForm.resx">
+      <DependentUpon>PaymentTypeTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PaymentTypeDetailForm.resx">
+      <DependentUpon>PaymentTypeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OrderTableForm.resx">
+      <DependentUpon>OrderTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OrderDetailForm.resx">
+      <DependentUpon>OrderDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ServiceTableForm.resx">
+      <DependentUpon>ServiceTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ServiceDetailForm.resx">
+      <DependentUpon>ServiceDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RateTableForm.resx">
+      <DependentUpon>RateTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RateDetailForm.resx">
+      <DependentUpon>RateDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RouteTableForm.resx">
+      <DependentUpon>RouteTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RouteDetailForm.resx">
+      <DependentUpon>RouteDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OrganizationTableForm.resx">
+      <DependentUpon>OrganizationTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OrganizationDetailForm.resx">
+      <DependentUpon>OrganizationDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TransportVehicleTableForm.resx">
+      <DependentUpon>TransportVehicleTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TransportVehicleDetailForm.resx">
+      <DependentUpon>TransportVehicleDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DivisionTableForm.resx">
+      <DependentUpon>DivisionTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DivisionDetailForm.resx">
+      <DependentUpon>DivisionDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FuelTableForm.resx">
+      <DependentUpon>FuelTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FuelDetailForm.resx">
+      <DependentUpon>FuelDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DriverCardTableForm.resx">
+      <DependentUpon>DriverCardTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DriverCardDetailForm.resx">
+      <DependentUpon>DriverCardDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TransportVehicleBrandDetailForm.resx">
+      <DependentUpon>TransportVehicleBrandDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TransportVehicleBrandTableForm.resx">
+      <DependentUpon>TransportVehicleBrandTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormConnectionTuning.resx">
+      <DependentUpon>FormConnectionTuning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TransportVehicleTypeDetailForm.resx">
+      <DependentUpon>TransportVehicleTypeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TransportVehicleTypeTableForm.resx">
+      <DependentUpon>TransportVehicleTypeTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WaybillDetailForm.resx">
+      <DependentUpon>WaybillDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WaybillTableForm.resx">
+      <DependentUpon>WaybillTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\WaybillsUC.resx">
+      <DependentUpon>WaybillsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\put_list_ori.XLS">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\undo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoLoadMenu.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoWaybillsMenu.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoPaymentToDriversMenu.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoReporsMenu.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoToolsMenu.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\texture.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logistika_708lwfvf9srx.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
